@@ -1,0 +1,9 @@
+<div>
+    <form class="search-gene-form" (keydown)="keyDownSearchForm($event)">
+        <mat-form-field class="search-gene" appearance="fill">
+        <mat-label>Type a Gene ID</mat-label>
+        <input name="gene" [(ngModel)]="gene" matInput placeholder="Ex. 8989" value="8989">
+        </mat-form-field>
+    </form>
+    <!-- <h1>{{gene}}</h1> -->
+</div>

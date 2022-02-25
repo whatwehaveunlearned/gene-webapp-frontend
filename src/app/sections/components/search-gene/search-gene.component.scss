@@ -1,0 +1,13 @@
+.search-gene-form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-gene{
+        width: 80%;
+        border:1px solid black;
+        border-radius: 10px;
+        margin: 1vw;
+    }
+}

@@ -1,0 +1,11 @@
+<div class='content'>
+    <p>{{title}}</p>
+    <div class='view'>
+        <app-table [hidden]="!table" [data]="data"></app-table>
+        <app-bar-chart [hidden]="!barChart" [data]="data"></app-bar-chart>
+    </div>
+    <mat-button-toggle-group [(value)] = "selectedValue" name="cardView" aria-label="Select View">
+        <mat-button-toggle (change)="changeView($event)"  value="table">Table</mat-button-toggle>
+        <mat-button-toggle (change)="changeView($event)" value="barChart">Bar Chart</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
