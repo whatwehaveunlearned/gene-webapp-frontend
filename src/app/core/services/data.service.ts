@@ -8,7 +8,7 @@ export class DataService {
 
   public socket:WebSocket;
   public dataServiceState:Subject<string> = new Subject<string>();
-  private address:string = "ws://" + "0.0.0.0" + ":5000/echo";
+  private address:string = "ws://" + "0.0.0.0" + ":8000/echo";
   public data:Subject<Array<any>> = new Subject<Array<any>>();
 
   constructor() {
