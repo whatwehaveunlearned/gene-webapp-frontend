@@ -21,7 +21,7 @@ export class BarChartComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes:SimpleChanges){
-    if(this.data.length > 0){
+    if(this.data){
       console.log("We have data barchart")
       d3.selectAll('svg').remove();
       this.createSvg();
