@@ -8,7 +8,12 @@ export class DataService {
 
   public socket:WebSocket;
   public dataServiceState:Subject<string> = new Subject<string>();
-  private address:string = "ws://" + "127.0.0.1" + ":8000/echo";
+  //Local
+  // private serverIP = "127.0.0.1"
+  //AWS
+  private serverIP ="184.72.130.201"
+  
+  private address:string = "ws://" + this.serverIP + ":8000/echo";
   public data:Subject<Array<any>> = new Subject<Array<any>>();
 
   constructor() {
