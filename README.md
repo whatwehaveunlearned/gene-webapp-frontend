@@ -4,12 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Basics and Requirements
 
+
+```
 Angular CLI: 13.0.4
 Node: 16.13.2
 Package Manager: npm 8.1.2
 OS: darwin arm64
 
-```
 Package                         Version
 ---------------------------------------------------------
 @angular-devkit/architect       0.1300.4
@@ -45,41 +46,32 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ```
 
 FROM node:16-alpine as builder
-
 WORKDIR /gene-webapp-frontend
 
 COPY /gene-webapp-frontend/package.json .
 COPY /gene-webapp-frontend/package-lock.json .
 
 RUN npm install
-
 COPY /gene-webapp-frontend .
 
-# Only for debug
-# RUN apk update && apk add bash
-
-# ENTRYPOINT ["/bin/bash"]
+##Only for debug
+#RUN apk update && apk add bash
+#ENTRYPOINT ["/bin/bash"]
 
 RUN npm run ng build
-
 FROM nginx:alpine
-
 WORKDIR /usr/share/nginx/html
-
 RUN rm -rf ./*
-
 COPY --from=builder /gene-webapp-frontend/dist/gene-webapp-frontend .
 
-# # Remove the default nginx.conf
+## Remove the default nginx.conf
 RUN rm /etc/nginx/conf.d/default.conf
 
-# # Replace with our own nginx.conf
+## Replace with our own nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/
 
-#Export port 80 that is the one that is used by nginx
-
+##Export port 80 that is the one that is used by nginx
 EXPOSE 80
-
 ENTRYPOINT ["nginx","-g","daemon off;"]
 
 ```
