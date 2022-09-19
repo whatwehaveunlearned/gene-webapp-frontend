@@ -1,3 +1,105 @@
 table{
     width: 100%;
+    // border: solid black 1px;
+    .mat-row .mat-cell {
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+        cursor: pointer;
+      }
+      
+      .mat-row:hover .mat-cell {
+        border-color: currentColor;
+      }
+    .mat-header-row{
+        // background:white;
+    }
+    .mat-header-cell{
+        font-size: min(0.8vw, 18px);
+
+        // font-size: 1vw;
+        font-weight: 500;
+    }
+    .mat-header-cell:nth-child(1){
+        padding-left: 8px;
+    }
+    .mat-cell{
+        font-size: min(0.8vw, 12px);
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .mat-paginator-container{
+        padding:0px;
+    }
+
+    //Specific styles for columns
+    .mat-column-primary_gene{
+        display: none;
+    }
+
+    .mat-column-Ranking{
+        max-width: 20px;
+        font-weight: bold;
+        border-right: 1px solid currentColor;
+        text-align: center;
+        padding:0px;
+    }
+
+    .mat-column-Symbol{
+        padding-left: 16px;
+    }
+
+    .mat-column-counts{
+        padding:0px;
+    }
+
+    .mat-column-title{
+        min-width: 560px;
+        font-weight: bold;
+    }
+
+    .mat-column-country{
+        min-width: 20px;
+    }
+
+    // .mat-column-authors{
+    //     max-width: 100px;
+    // }
+
+    //END Specific styles for columns
+    
+    .mat-sort-header-container{
+        justify-content: center;
+    }
+
+    // tr{
+    //     .mat-cell:nth-child(1){
+    //         min-width: 16rem;
+    //         font-style: italic;
+    //         word-wrap: break-word !important;
+    //         white-space: unset !important;
+    //         min-width: 9vw;
+    //         overflow-wrap: break-word;
+    //         word-wrap: break-word;
+    //         word-break: break-word;
+    //         -ms-hyphens: auto;
+    //         -moz-hyphens: auto;
+    //         -webkit-hyphens: auto;
+    //         hyphens: auto;
+    //     }
+    // }
+    
+    // .mat-column-title{
+    //     font-style: italic;
+    //     word-wrap: break-word !important;
+    //     white-space: unset !important;
+    //     min-width: 9vw;
+    //     overflow-wrap: break-word;
+    //     word-wrap: break-word;
+    //     word-break: break-word;
+    //     -ms-hyphens: auto;
+    //     -moz-hyphens: auto;
+    //     -webkit-hyphens: auto;
+    //     hyphens: auto;
+    // }
 }

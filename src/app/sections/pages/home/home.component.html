@@ -1,9 +1,14 @@
 <div class='content'>
     <app-search-gene></app-search-gene>
-    <div>
-        <h1>{{title}}</h1>
-    </div>
+    <mat-divider></mat-divider>
+    <mat-card>
+        <p class="number_title">34 Million</p>
+        <p class="graph_title">Citations and abstracts in Pubmed</p>
+    </mat-card>
+    <app-summary [geneID]= ""></app-summary>
+    <app-subsection></app-subsection> 
+    
     <!-- <app-data-card [title] = "section_title[0]" [data]= "dataHistogram"></app-data-card> -->
     <!-- <app-table [data]="dataPublications"></app-table> -->
-    <app-bar-chart [data]="dataHistogram"></app-bar-chart>
+    <!-- <app-bar-chart [data]="dataHistogram"></app-bar-chart> -->
 </div>

@@ -1,13 +1,28 @@
 .search-gene-form{
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: end;
 
     .search-gene{
-        width: 80%;
+        width: 41%;
         border:1px solid black;
         border-radius: 10px;
         margin: 1vw;
+    }
+
+    .mat-form-field-wrapper{
+        padding-bottom: 0px;
+    }
+
+    ::ng-deep .mat-form-field-subscript-wrapper{
+        padding: 2em 1em;
+     }
+
+    ::ng-deep .mat-form-field-wrapper{
+    padding-bottom: 0px;
+    }
+
+    ::ng-deep .mat-form-field-underline{
+        display: none;
     }
 }

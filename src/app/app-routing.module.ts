@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './sections/components/home/home.component';
+import { HomeComponent } from './sections/pages/home/home.component';
+import {GeneComponent} from './sections/pages/gene/gene.component'
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'gene/:gene',
-    component:HomeComponent
+    component:GeneComponent
   },
 ];
 

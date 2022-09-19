@@ -1,8 +1,12 @@
 <div>
     <form class="search-gene-form" (keydown)="keyDownSearchForm($event)">
         <mat-form-field class="search-gene" appearance="fill">
-        <mat-label>Type a Gene ID</mat-label>
-        <input name="gene" [(ngModel)]="gene" matInput placeholder="Ex. 8989" value="8989">
+        <mat-label>Search for a Gene</mat-label>
+        <!-- <input matInput #message maxlength="256" placeholder="Ex. I need help with..."> -->
+        <input name="gene" [(ngModel)]="gene" matInput placeholder="Ex. 8989" value="8989" #message maxlength="20">
+        <mat-hint align="start"><strong>Use a geneID</strong> </mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
+        <!-- <input name="gene" [(ngModel)]="gene" matInput placeholder="Ex. 8989" value="8989"> -->
         </mat-form-field>
     </form>
     <!-- <h1>{{gene}}</h1> -->

@@ -1,0 +1,27 @@
+.gene-card-container{
+    margin: 5px;
+    .gene-card-title{
+        font-weight: bold;
+        font-size: min(1.5vw, 30px);
+        margin-left: 11px;
+    }
+
+    .gene-card{
+        border: 2px solid black;
+        border-radius: 24px;
+        padding: 10px;
+
+        .gene-card-attribute-title{
+            font-weight: bold;
+        }
+    }
+
+    .loading_message{
+        font-size: min(1vw, 18px);
+        text-align: center;
+    }
+    
+    mat-spinner{
+        margin: auto;
+    }
+}

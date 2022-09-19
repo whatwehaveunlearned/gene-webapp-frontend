@@ -1,0 +1,39 @@
+<mat-card class="container">
+    <mat-card-title class="section_title">Ranking of Genes By Number of Publications</mat-card-title>
+    <div class="subsection_component">
+        <mat-card class="graph_table_container">
+            <!-- empty div below because first child of mat-card is set to 0 margin
+            for some reason -->
+            <div></div>
+            <p class="graph_title">Since 1969</p>
+            <app-bar-chart [data]="gene_counts_all_time"></app-bar-chart>
+            <app-table [data]= "gene_counts_all_time"></app-table>
+        </mat-card>
+        <mat-card class="graph_table_container">
+             <!-- empty div below because first child of mat-card is set to 0 margin
+            for some reason -->
+            <div></div>
+            <p class="graph_title">In the past 10 Years</p>
+            <app-bar-chart [data]="gene_counts_past_10"></app-bar-chart>
+            <app-table [data]= "gene_counts_past_10"></app-table>
+        </mat-card>
+
+        <mat-card class="graph_table_container">
+             <!-- empty div below because first child of mat-card is set to 0 margin
+            for some reason -->
+            <div></div>
+            <p class="graph_title">In the past 5 Years</p>
+            <app-bar-chart [data]="gene_counts_past_5"></app-bar-chart>
+            <app-table [data]= "gene_counts_past_5"></app-table>
+        </mat-card>
+
+        <mat-card class="graph_table_container">
+             <!-- empty div below because first child of mat-card is set to 0 margin
+            for some reason -->
+            <div></div>
+            <p class="graph_title">In the past 12 Months</p>
+            <app-bar-chart [data]="gene_counts_past_1"></app-bar-chart>
+            <app-table [data]= "gene_counts_past_1"></app-table>
+        </mat-card>
+    </div>
+</mat-card>

@@ -2,3 +2,33 @@ content{
     display: flex;
     flex-direction: column;
 }
+
+mat-divider{
+    padding: 1vw;
+    margin: 1vw;
+}
+
+.number_title{
+    font-size: min(1.5vw, 30px);
+    font-weight: bold;
+    margin: 0px;
+    text-align:center;
+    color:white;
+}
+
+.graph_title{
+    font-size: min(1vw, 18px);
+    text-align: center;
+    color:white;
+}
+
+mat-card{
+    width: fit-content;
+    margin: auto;
+    padding:1vw;
+    background: #ff80ab;
+    border: solid 1px;
+    p{
+        margin:0.2vw;
+    }
+}

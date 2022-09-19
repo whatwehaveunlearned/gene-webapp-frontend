@@ -1,4 +1,30 @@
-#bar{
-    width: 100%;
-    height: 100%;
+.bar{
+    margin-right: -20px; //This fixes the sizing and position inside of the cards
+    margin-left: 5px;
 }
+
+.graph-text{
+    font-size: min(0.6vw, 10px);
+}
+
+.hidden-tick{
+    display:none;
+}
+
+.tooltip{
+    color:white;
+}
+
+.tooltip-background{
+    stroke-width: 1;
+    stroke: "#90caf9";
+}
+
+mat-spinner{
+    margin: auto;
+}
+
+// .tooltip-text{
+//     font-size: min(1vw, 18px);
+//     background:white;
+// }

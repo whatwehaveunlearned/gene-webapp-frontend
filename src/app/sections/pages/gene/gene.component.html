@@ -1,2 +1,50 @@
 <app-search-gene></app-search-gene>
-<app-bar-chart [data]="dataHistogram"></app-bar-chart>
+<div class="gene-card-container">
+    <p class="gene-card-title" *ngIf="this.gene_info"> Gene Card </p>
+    <mat-card class="gene-card" *ngIf="!this.gene_info">
+        <p class="loading_message">Fetching data this might take up to a couple of minutes</p>
+        <mat-spinner
+            [color]="'accent'"
+            [strokeWidth]="2"
+            [diameter]="50">
+        </mat-spinner>
+    </mat-card>
+    <mat-card class="gene-card" *ngIf="this.gene_info">
+        <p>
+        <span class="gene-card-attribute-title">Gene: </span> <span class="gene-card-attribute-value">{{this.gene_info['Official_Symbol']}}</span>
+        </p>
+        <p>
+            <span class="gene-card-attribute-title">Discovered: </span> <span class="gene-card-attribute-value">{{this.gene_info['First_Published']}}</span>
+            </p>
+        <p>
+            <span class="gene-card-attribute-title">Official Symbol:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Official_Symbol']}} </span>
+        </p>
+        <p>
+            <span class="gene-card-attribute-title"> Official Full Name:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Official_Name']}} </span>
+
+        </p>
+        <p>
+            <span class="gene-card-attribute-title"> Also Known as: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Synonyms']}} </span>
+
+        </p>
+        <p>
+            <span class="gene-card-attribute-title"> Gene Type: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Type']}} </span>
+
+        </p>
+        <p>
+            <span class="gene-card-attribute-title"> Organism: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Organism']}} </span>
+
+        </p>
+        <p>
+            <span class="gene-card-attribute-title"> Lineage: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Lineage']}} </span>
+
+        </p>
+        <p>
+            <span class="gene-card-attribute-title"> Summary: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Summary']}} </span>
+        </p>
+        <!-- <app-table [data]= "gene_counts_all_time"></app-table> -->
+    </mat-card>
+</div>
+
+<app-summary [geneID]= "geneID"></app-summary>
+<app-list-component *ngIf="this.gene_info" [geneID]= "geneID" [geneSymbol]="geneSymbol"></app-list-component>

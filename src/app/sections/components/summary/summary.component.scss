@@ -1,0 +1,47 @@
+.gene2pubmed{
+    display: flex;
+    justify-content: center;
+    margin:20px;
+    div{
+        margin:2px;
+        flex:1;
+        .summary_values{
+            margin:auto;
+            width: fit-content;
+            padding:1vw;
+            background: #ff80ab;
+            border: solid 1px;
+            p{
+                text-align: center;
+                margin:0.2vw;
+                color:white;
+            }
+        }
+    }
+    mat-divider{
+        padding: 1vw;
+        margin: 1vw;
+    }
+}
+
+.number_title{
+    font-size: min(1.5vw, 30px);
+    font-weight: bold;
+    margin: 0px;
+}
+
+.graph_title{
+    font-size: min(1vw, 18px);
+}
+
+.graph_block{
+    display:flex;
+    flex-direction: column;
+    padding: 0;
+    padding-top: 10px;
+    min-width: 100px;
+    min-height: 100px;
+    app-bar-chart{
+        flex:1
+    }
+}

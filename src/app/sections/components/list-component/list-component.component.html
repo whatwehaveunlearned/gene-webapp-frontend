@@ -1,0 +1,19 @@
+<mat-card class="container">
+    <p class="title">{{this.geneSymbol}} Publications</p>
+    <div class="section" *ngIf="this.all_time">
+        <mat-tab-group mat-align-tabs="center" >
+            <mat-tab label="Since 1969" aria-selected="True">
+                <app-table [data]= "all_time"></app-table>
+            </mat-tab>
+            <mat-tab label="Past 10 Years">
+                <app-table [data]= "past_10"></app-table> 
+            </mat-tab>
+            <mat-tab label="Past 5 Years">
+                <app-table [data]= "past_5"></app-table> 
+            </mat-tab>
+            <mat-tab label="Past 12 Months">
+                <app-table [data]= "past_1"></app-table> 
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</mat-card>

@@ -1,0 +1,41 @@
+<div class="gene2pubmed">
+    <div class="all_gene2pubmed">
+        <mat-card *ngIf="n_papers_all_gene2pubmed" class="summary_values">
+            <p class="number_title">{{n_papers_all_gene2pubmed | number}}</p>
+            <p class="graph_title">Gene related documents in pubmed</p>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card class="graph_block">
+            <app-bar-chart [data]="data_summary_hist_all_gene2pubmed"></app-bar-chart>
+        </mat-card>
+        <mat-card class="graph_block">     
+            <app-bar-chart [data]="data_summary_hist_cum_all_gene2pubmed"></app-bar-chart>
+        </mat-card>
+    </div>
+    <div class="research_gene2pubmed">
+        <mat-card *ngIf="n_papers_research_gene2pubmed"  class="summary_values">
+            <p class="number_title">{{n_papers_research_gene2pubmed | number}}</p>
+            <p class="graph_title"> Primary research gene papers</p>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card class="graph_block">
+            <app-bar-chart [data]="data_summary_hist_research_gene2pubmed"></app-bar-chart>
+        </mat-card>
+        <mat-card class="graph_block">   
+            <app-bar-chart [data]="data_summary_hist_cum_research_gene2pubmed"></app-bar-chart>
+        </mat-card>
+    </div>
+    <div class="reviews_gene2pubmed">
+        <mat-card *ngIf="n_papers_reviews_gene2pubmed"  class="summary_values">
+            <p class="number_title">{{n_papers_reviews_gene2pubmed | number}}</p>
+            <p class="graph_title">Gene Reviews and others</p>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card class="graph_block">
+            <app-bar-chart [data]="data_summary_hist_reviews_gene2pubmed"></app-bar-chart>
+        </mat-card>
+        <mat-card class="graph_block">       
+            <app-bar-chart [data]="data_summary_hist_cum_reviews_gene2pubmed"></app-bar-chart>
+        </mat-card>
+    </div>
+</div>

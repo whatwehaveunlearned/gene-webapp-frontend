@@ -1,1 +1,9 @@
-<div id="bar"></div>
+<div #graph class="bar">
+    <!-- <div [className]="'tooltip tooltip-' + graphID"></div> -->
+</div>
+<mat-spinner  
+    *ngIf="!data"
+    [color]="'accent'"
+    [strokeWidth]="2"
+    [diameter]="50"
+    ></mat-spinner>

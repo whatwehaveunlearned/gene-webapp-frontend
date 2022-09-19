@@ -1,0 +1,30 @@
+.container{
+    margin:20px;
+
+    .subsection_component{
+        display: flex;
+        flex-wrap:wrap;
+        margin-top: 10px;
+        justify-content: start;
+        gap: 12px;
+        .graph_table_container{
+            flex:1;
+            padding: 2px;
+            max-width:40%;
+            padding:0;
+        }
+        .all_time_container{
+            width: 50%;
+        }
+    }
+
+    .section_title{
+        font-size: min(1.5vw, 30px);
+    }
+}
+
+.graph_title{
+    font-size: min(1vw, 18px);
+    text-align: center;
+    margin-top:10px;
+}

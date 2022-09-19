@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router'
 import { DataService } from 'src/app/core/services/data.service';
 
@@ -13,14 +13,15 @@ export class GeneComponent implements OnInit {
   public title:string = "test";
 
   //Gene Searched
-  private gene:string = '8989';
+  public geneID:string = '8989';
+  public geneSymbol:string=''
 
   //data from server
   public data:Object;
 
   //Data for sections
-  public dataPublications:Object;
-  public dataHistogram:Object;
+  public gene_info:any;
+  public gene_counts_all_time:any;
 
   //active Route
   // activeRouteString:string =''
@@ -32,32 +33,32 @@ export class GeneComponent implements OnInit {
     ){}
 
   ngOnInit(): void {
+    //Store Route on landing
+    this.geneID = this.activatedRoute.snapshot.params['gene']
     //Subscribe to socket state
     this.dataService.dataServiceState.subscribe((state) =>{
       if(state="opened"){
-        //Store Route on landing
-        this.gene = this.activatedRoute.snapshot.params['gene']
-        this.dataService.fetchDataServer('search_gene',this.gene)
-        //Subscribe to router to detect URL changes
-        this.router.events.subscribe((event) => {
-        // When we do a search URL updates and we fetch data from server 
-        if(event instanceof NavigationEnd) {
-          //update new gene when route changes
-          this.gene = this.activatedRoute.snapshot.params['gene']
-          this.dataService.fetchDataServer('search_gene',this.gene)
-        }
-        });
+        this.dataService.fetchDataServer('get_gene_info',this.geneID)
       }
     })
 
-    //Subscribe to socket data
-    this.dataService.data.subscribe((data_recieved:any) =>{
+    // Subscribe to socket data
+    this.dataService.gene_component_data.subscribe((data_recieved:any) =>{
       let dataType = data_recieved['type'];
       this.data = JSON.parse(data_recieved['data']);
-      if(dataType === 'table_data'){
-        this.dataPublications = this.data;
-      }else if(dataType === 'hist_data'){
-        this.dataHistogram = this.data;
+      //We add the data to the proper variable depending on dataType
+      switch (dataType) {
+        //Information for gene_info card 
+        case 'gene_info':
+          this.gene_info = this.data;
+          this.geneSymbol = this.gene_info['Official_Symbol'];
+          break;
+        //Rank table for gene_info card
+        case 'gene_counts_all_time':
+          this.gene_counts_all_time = this.data;
+          break;
+        default:
+          console.log('Error: Not a valid option') 
       }
     })
   }
