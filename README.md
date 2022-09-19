@@ -41,7 +41,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 (TODO) DOCKER INFO AND SETUP
 
-1. CREATE Dockerfile
+1. CREATE Dockerfile (Above project root)
 
 ```
 
@@ -74,6 +74,36 @@ COPY nginx.conf /etc/nginx/conf.d/
 EXPOSE 80
 ENTRYPOINT ["nginx","-g","daemon off;"]
 
+```
+
+2. CREATE .dockerignore (Above project root)
+```
+gene-webapp-frontend/node_modules
+node_modules
+```
+
+3. Create nginx.conf (Above project root)
+```
+server {
+  listen 80;
+  sendfile on;
+  default_type application/octet-stream;
+
+  gzip on;
+  gzip_http_version 1.1;
+  gzip_disable      "MSIE [1-6]\.";
+  gzip_min_length   256;
+  gzip_vary         on;
+  gzip_proxied      expired no-cache no-store private auth;
+  gzip_types        text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+  gzip_comp_level   9;
+
+  root /usr/share/nginx/html;
+
+  location / {
+    try_files $uri $uri/ /index.html =404;
+  }
+}
 ```
 
 ## Running end-to-end tests
