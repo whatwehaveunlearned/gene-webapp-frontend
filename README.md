@@ -9,6 +9,7 @@ Node: 16.13.2
 Package Manager: npm 8.1.2
 OS: darwin arm64
 
+```
 Package                         Version
 ---------------------------------------------------------
 @angular-devkit/architect       0.1300.4
@@ -21,7 +22,7 @@ Package                         Version
 @schematics/angular             13.0.4
 rxjs                            7.4.0
 typescript                      4.4.4
-
+```
 ## Setup
 
 Run npm install (inside project folder.)
