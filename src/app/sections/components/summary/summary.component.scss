@@ -1,11 +1,20 @@
-.gene2pubmed{
+@use "../../../../style_variables" as theme;
+
+.content{
     display: flex;
     justify-content: center;
     margin:20px;
+    .section{
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        margin: 0.5em;
+        margin-top:1.5em;
+    }
     div{
-        margin:2px;
+        // margin:2px;
         flex:1;
         .summary_values{
+            // position:relative;
+            // top:-2vw;
             margin:auto;
             width: fit-content;
             padding:1vw;
@@ -37,6 +46,7 @@
 .graph_block{
     display:flex;
     flex-direction: column;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
     padding: 0;
     padding-top: 10px;
     min-width: 100px;
@@ -44,4 +54,16 @@
     app-bar-chart{
         flex:1
     }
+}
+
+.info_button{
+    position: relative;
+    top: -12px;
+    color: theme.$color-primary;
+    left: -14px;
+    font-size: 19px;
+}
+
+.info_button:hover{
+    color: theme.$color-accent;
 }

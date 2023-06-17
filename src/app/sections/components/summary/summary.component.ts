@@ -9,7 +9,8 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class SummaryComponent implements OnInit {
 
-  @Input() geneID:any=[];
+  @Input() value:any=[];
+  @Input() page:any=[];
 
   //data for component
   private data:any;
@@ -30,7 +31,7 @@ export class SummaryComponent implements OnInit {
     this.dataService.dataServiceState.subscribe((state) =>{
       if(state="opened"){
         //Fetch summary component data
-        this.dataService.fetchDataServer('summary_component',this.geneID)
+        this.dataService.fetchDataServer('summary_component',this.value,[this.page])
       }
     })
 

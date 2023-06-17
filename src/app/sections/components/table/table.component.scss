@@ -1,31 +1,28 @@
+@use "../../../../style_variables" as theme;
+
 table{
     width: 100%;
-    // border: solid black 1px;
     .mat-row .mat-cell {
         border-bottom: 1px solid transparent;
         border-top: 1px solid transparent;
         cursor: pointer;
       }
-      
-      .mat-row:hover .mat-cell {
-        border-color: currentColor;
-      }
-    .mat-header-row{
-        // background:white;
-    }
     .mat-header-cell{
-        font-size: min(0.8vw, 18px);
-
-        // font-size: 1vw;
+        font-size: theme.$font-size-table-titles;
         font-weight: 500;
     }
     .mat-header-cell:nth-child(1){
         padding-left: 8px;
+        min-width: 3rem;
     }
     .mat-cell{
-        font-size: min(0.8vw, 12px);
+        font-size:theme.$font-size-table-text;
         padding-left: 2px;
         padding-right: 2px;
+        max-width: 100vw; 
+        //Previous line (max-width) is needed because
+        //table gets outs of bounds since its used inside the mat-tab
+        //For some reason this max-width fixes the issue. 
     }
 
     .mat-paginator-container{
@@ -33,73 +30,104 @@ table{
     }
 
     //Specific styles for columns
+    .mat-column-PubMed_ID{
+        display: none;
+    }
+
     .mat-column-primary_gene{
         display: none;
     }
 
     .mat-column-Ranking{
-        max-width: 20px;
+        width: fit-content;
         font-weight: bold;
         border-right: 1px solid currentColor;
         text-align: center;
-        padding:0px;
+        padding: 3px;
+        max-width: 1.5rem;
     }
 
     .mat-column-Symbol{
         padding-left: 16px;
     }
 
+    .mat-column-author{
+        padding-left: 16px;
+        width: fit-content;
+        white-space: normal;
+        word-wrap: break-word;
+        padding-right: 16px;
+    }
+
+    .mat-column-authors{
+        display: none;
+    }
+
     .mat-column-counts{
         padding:0px;
+        text-align: center;
+        ::ng-deep .mat-sort-header-container{
+            justify-content: center;
+        }
     }
 
     .mat-column-title{
-        min-width: 560px;
+        width: fit-content;
         font-weight: bold;
     }
 
     .mat-column-country{
-        min-width: 20px;
+        width: fit-content;
     }
 
-    // .mat-column-authors{
-    //     max-width: 100px;
-    // }
-
-    //END Specific styles for columns
-    
-    .mat-sort-header-container{
-        justify-content: center;
-    }
-
-    // tr{
-    //     .mat-cell:nth-child(1){
-    //         min-width: 16rem;
-    //         font-style: italic;
-    //         word-wrap: break-word !important;
-    //         white-space: unset !important;
-    //         min-width: 9vw;
-    //         overflow-wrap: break-word;
-    //         word-wrap: break-word;
-    //         word-break: break-word;
-    //         -ms-hyphens: auto;
-    //         -moz-hyphens: auto;
-    //         -webkit-hyphens: auto;
-    //         hyphens: auto;
-    //     }
-    // }
-    
-    // .mat-column-title{
-    //     font-style: italic;
-    //     word-wrap: break-word !important;
-    //     white-space: unset !important;
-    //     min-width: 9vw;
-    //     overflow-wrap: break-word;
-    //     word-wrap: break-word;
-    //     word-break: break-word;
-    //     -ms-hyphens: auto;
-    //     -moz-hyphens: auto;
-    //     -webkit-hyphens: auto;
-    //     hyphens: auto;
-    // }
+    //search table
+    .mat-column-descrption{
+      width: fit-content;
+      white-space: normal;
+      word-wrap: break-word;
+  }
 }
+
+table {
+    width: 100%;
+    border-top:1px solid black;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: theme.$color-accent;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .expanded-section {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .authors-element{
+    position: relative;
+    top: 4px;
+  }
+
+  .authors-text{
+    font-weight:bold;
+  }
+
+  .go-to:hover{
+    color:theme.$color-accent
+  }
+  
+  .go-to{
+    color:theme.$color-primary
+  }

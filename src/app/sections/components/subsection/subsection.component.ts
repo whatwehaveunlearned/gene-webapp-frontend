@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { DataService } from 'src/app/core/services/data.service';
 
@@ -9,12 +9,20 @@ import { DataService } from 'src/app/core/services/data.service';
   styleUrls: ['./subsection.component.scss']
 })
 export class SubsectionComponent implements OnInit {
+
+  @Input() subsectionType:string='';
+  @Input() filter:any=[];
+  @Input() page:any =[];
   
   private data:any;
   public gene_counts_all_time:Object;
   public gene_counts_past_10:Object;
   public gene_counts_past_5:Object;
   public gene_counts_past_1:Object;
+  public author_counts_all_time:Object;
+  public author_counts_past_10:Object;
+  public author_counts_past_5:Object;
+  public author_counts_past_1:Object;
   public columns:Array<string>;
 
   constructor(private dataService:DataService) { }
@@ -23,8 +31,13 @@ export class SubsectionComponent implements OnInit {
     //Subscribe to socket state
     this.dataService.dataServiceState.subscribe((state) =>{
       if(state="opened"){
+        if(this.subsectionType=='gene'){
         // Fetch gene_counts data
-        this.dataService.fetchDataServer('subsection_component')
+        this.dataService.fetchDataServer('subsection_component',this.filter,['gene',this.page])
+        }else if(this.subsectionType=='author'){
+          // Fetch author_counts data
+        this.dataService.fetchDataServer('subsection_component',this.filter,['author',this.page])
+        }
       }
     })
 
@@ -41,14 +54,26 @@ export class SubsectionComponent implements OnInit {
           break;
         case 'gene_counts_past_10':
           this.gene_counts_past_10 = this.data;
-          this.columns = ['ID', 'counts'];
+          // this.columns = ['ID', 'counts'];
           break;
-          case 'gene_counts_past_5':
+        case 'gene_counts_past_5':
             this.gene_counts_past_5 = this.data;
             break;
-          case 'gene_counts_past_1':
+        case 'gene_counts_past_1':
             this.gene_counts_past_1 = this.data;
             break;
+        case 'author_counts_all_time':
+            this.author_counts_all_time = this.data;
+            break;
+        case 'author_counts_past_10':
+          this.author_counts_past_10 = this.data;
+          break;
+        case 'author_counts_past_5':
+          this.author_counts_past_5 = this.data;
+          break;
+        case 'author_counts_past_1':
+          this.author_counts_past_1 = this.data;
+          break;
         default:
           console.log('Not a valid option')
       }

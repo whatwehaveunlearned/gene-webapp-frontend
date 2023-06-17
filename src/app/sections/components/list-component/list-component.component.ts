@@ -9,8 +9,9 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class ListComponentComponent implements OnInit {
 
-  @Input() geneSymbol:any=[];
-  @Input() geneID:any=[];
+  @Input() title:any=[];
+  @Input() filter:any=[];
+  @Input() page:any=[];
 
   private data:any;
   public all_time:Object;
@@ -29,7 +30,7 @@ export class ListComponentComponent implements OnInit {
       this.isLoading = true;
       if(state="opened"){
         // Fetch gene_counts data
-        this.dataService.fetchDataServer('list_component',this.geneID)
+        this.dataService.fetchDataServer('list_component',this.filter,[this.page])
       }
     })
 

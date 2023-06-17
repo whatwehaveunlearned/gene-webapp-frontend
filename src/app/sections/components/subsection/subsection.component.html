@@ -1,5 +1,5 @@
-<mat-card class="container">
-    <mat-card-title class="section_title">Ranking of Genes By Number of Publications</mat-card-title>
+<div *ngIf="subsectionType=='gene'" class="container">
+    <p class="section_title">Top Genes By Number of Publications</p>
     <div class="subsection_component">
         <mat-card class="graph_table_container">
             <!-- empty div below because first child of mat-card is set to 0 margin
@@ -36,4 +36,35 @@
             <app-table [data]= "gene_counts_past_1"></app-table>
         </mat-card>
     </div>
-</mat-card>
+</div>
+
+<div *ngIf="subsectionType=='author'" class="container">
+    <p class="section_title">Top Authors By Number of Publications</p>
+    <div class="subsection_component">
+        <mat-card class="graph_table_container">
+            <div></div>
+            <p class="graph_title">Since 1969</p>
+            <!-- <app-bar-chart [data]="author_counts_all_time"></app-bar-chart> -->
+            <app-table [data]="author_counts_all_time"></app-table>
+        </mat-card>
+        <mat-card class="graph_table_container">
+            <div></div>
+            <p class="graph_title">In the past 10 Years</p>
+            <!-- <app-bar-chart [data]="author_counts_past_10"></app-bar-chart> -->
+            <app-table [data]="author_counts_past_10"></app-table>
+        </mat-card>
+        <mat-card class="graph_table_container">
+            <div></div>
+            <p class="graph_title">In the past 5 Years</p>
+            <!-- <app-bar-chart [data]="author_counts_past_5"></app-bar-chart> -->
+            <app-table [data]="author_counts_past_5"></app-table>
+        </mat-card>
+        <mat-card class="graph_table_container">
+            <div></div>
+            <p class="graph_title">In the past 12 Months</p>
+            <!-- <app-bar-chart [data]="author_counts_past_1"></app-bar-chart> -->
+            <app-table [data]="author_counts_past_1"></app-table>
+        </mat-card>
+    </div>
+</div>
+

@@ -1,18 +1,41 @@
-.container{
-    margin: 5px;
+@use "../../../../style_variables" as theme;
+
+.section{
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    margin: 20px;
+    margin-top:1.5em;
+    padding:1rem;
 
     .title{
-        font-size: min(1.5vw, 30px);
-        font-weight: bold;
-        margin-left: 11px;
+        font-size: theme.$font-size-subtitle;
+        // font-weight: bold;
+        // margin-left: 11px;
+        text-align: center;
     }
 
-    .section{
+    .content{
         display:flex;
         justify-content: center;
+        margin: 0.5em;
         
         .mat-tab-group{
             width: 100%;
+
+            ::ng-deep .mat-tab-header{
+                width: fit-content;
+                margin: auto;
+                // background: theme.$color-accent;
+                ::ng-deep .mat-tab-label-content{
+                    // font-size: min(1.5vw, 30px);
+                    color: black;
+                }
+                ::ng-deep .mat-tab-label:hover{
+                    // font-size: min(1.5vw, 30px);
+                    // color: white;
+                    background-color: theme.$color-accent;
+                    opacity: 1;
+                }
+            }
         }
     }
 }

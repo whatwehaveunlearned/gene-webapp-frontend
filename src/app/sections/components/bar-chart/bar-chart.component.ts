@@ -53,6 +53,9 @@ export class BarChartComponent implements OnChanges, AfterViewInit {
       }else if(this.attributes.includes('ID')){
         this.x_value = "ID"
         this.barChartType = 'by_years'
+      }else if(this.attributes.includes('authors')){
+        this.x_value = "authors"
+        this.barChartType = 'by_authors'
       }
       this.createSvg();
       this.drawBars(this.data);
@@ -69,9 +72,12 @@ export class BarChartComponent implements OnChanges, AfterViewInit {
     this.svg = d3.select(this.divElement.nativeElement)
     .append("svg")
     // Configure SVG
+    .attr('class', 'svg-figure')
     .attr('width', '100%')
     .attr('height', '100%')
     .attr('viewBox', '0 0 ' + this.viewBoxWidth + ' ' + this.viewBoxHeight)
+    .style('overflow', 'visible')
+    .style('margin-bottom', '1vw')
     .append("g")
     .attr("transform", "translate(" + this.margin_width + "," + 5 + ")");
   }

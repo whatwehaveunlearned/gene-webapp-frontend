@@ -2,12 +2,19 @@
     <form class="search-gene-form" (keydown)="keyDownSearchForm($event)">
         <mat-form-field class="search-gene" appearance="fill">
         <mat-label>Search for a Gene</mat-label>
-        <!-- <input matInput #message maxlength="256" placeholder="Ex. I need help with..."> -->
-        <input name="gene" [(ngModel)]="gene" matInput placeholder="Ex. 8989" value="8989" #message maxlength="20">
+        <input name="searchTerm" [(ngModel)]="searchTerm" matInput placeholder="Ex. 8989" value="8989" #message maxlength="20">
         <mat-hint align="start"><strong>Use a geneID</strong> </mat-hint>
         <mat-hint align="end">{{message.value.length}} / 20</mat-hint>
         <!-- <input name="gene" [(ngModel)]="gene" matInput placeholder="Ex. 8989" value="8989"> -->
         </mat-form-field>
     </form>
     <!-- <h1>{{gene}}</h1> -->
+
+    <!-- <div class="results">
+        <mat-list *ngIf="searchTerm.length>2">
+            <mat-list-item (click)="search($event, name)" *ngFor="let name of allGenes | filterByName:searchTerm">
+                {{name}}
+            </mat-list-item>
+        </mat-list>
+    </div> -->
 </div>

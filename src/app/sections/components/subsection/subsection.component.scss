@@ -1,5 +1,4 @@
 .container{
-    margin:20px;
 
     .subsection_component{
         display: flex;
@@ -20,6 +19,8 @@
 
     .section_title{
         font-size: min(1.5vw, 30px);
+        text-align: center;
+        margin: 20px;
     }
 }
 
@@ -27,4 +28,6 @@
     font-size: min(1vw, 18px);
     text-align: center;
     margin-top:10px;
+    font-weight: 400;
+    margin-left: 14px;
 }
