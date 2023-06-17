@@ -1,0 +1,7 @@
+<p class="title">{{authorID}}</p>
+<app-summary [value]= "authorID" [page]="'author'"></app-summary>
+<app-subsection [page]= "'author'" [filter]= "authorID" [subsectionType]="'gene'"></app-subsection> 
+<app-subsection [page]= "'author'" [filter]= "authorID" [subsectionType]="'author'"></app-subsection> 
+<app-list-component [page]= "'author'" [filter]= "authorID" [title]="authorID"></app-list-component>
+<!-- <app-bar-chart [data]="histogram_all_publications"></app-bar-chart> -->
+<!-- <app-table [data]= "all_publications"></app-table> -->

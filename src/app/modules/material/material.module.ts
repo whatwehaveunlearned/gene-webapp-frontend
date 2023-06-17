@@ -9,6 +9,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon'
 
 //DONT FORGET TO ADD THE MODULES FROM HERE TO THE CUSTOM STYLES
 
@@ -22,7 +24,9 @@ const exportableModules = [
   MatCardModule,
   MatTabsModule,
   MatProgressSpinnerModule,
-  MatDividerModule
+  MatDividerModule,
+  MatListModule,
+  MatIconModule
 ];
 
 

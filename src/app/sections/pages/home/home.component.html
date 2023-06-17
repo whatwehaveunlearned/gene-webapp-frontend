@@ -1,13 +1,12 @@
 <div class='content'>
     <app-search-gene></app-search-gene>
-    <mat-divider></mat-divider>
     <mat-card>
         <p class="number_title">34 Million</p>
         <p class="graph_title">Citations and abstracts in Pubmed</p>
     </mat-card>
-    <app-summary [geneID]= ""></app-summary>
-    <app-subsection></app-subsection> 
-    
+    <app-summary class="summary" [page]= "'home'" [value]= ""></app-summary>
+    <app-subsection class="subsection" [page]= "'home'" [subsectionType]="'gene'"></app-subsection> 
+    <app-subsection class="subsection" [page]= "'home'" [subsectionType]="'author'"></app-subsection> 
     <!-- <app-data-card [title] = "section_title[0]" [data]= "dataHistogram"></app-data-card> -->
     <!-- <app-table [data]="dataPublications"></app-table> -->
     <!-- <app-bar-chart [data]="dataHistogram"></app-bar-chart> -->

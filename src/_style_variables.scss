@@ -1,0 +1,14 @@
+//Global variables for styles.
+//The idea would be to automatically get the color from the themes directly but I cant figure it right now.
+
+//Colors
+$color-primary: #90caf9;
+$color-accent: #ff80ab;
+$color-warning: red;
+
+//Font Sizes
+$font-size-title:  min(1.5vw, 30px);
+$font-size-subtitle: min(1.5vw, 30px);
+$font-size-table-titles: min(0.8vw, 18px);
+$font-size-table-text:min(0.8vw, 12px);
+$font-size-text: min(1.5vw, 30px);

@@ -38,7 +38,7 @@ export class GeneComponent implements OnInit {
     //Subscribe to socket state
     this.dataService.dataServiceState.subscribe((state) =>{
       if(state="opened"){
-        this.dataService.fetchDataServer('get_gene_info',this.geneID)
+        this.dataService.fetchDataServer('get_gene_info',this.geneID,[])
       }
     })
 
@@ -52,10 +52,6 @@ export class GeneComponent implements OnInit {
         case 'gene_info':
           this.gene_info = this.data;
           this.geneSymbol = this.gene_info['Official_Symbol'];
-          break;
-        //Rank table for gene_info card
-        case 'gene_counts_all_time':
-          this.gene_counts_all_time = this.data;
           break;
         default:
           console.log('Error: Not a valid option') 

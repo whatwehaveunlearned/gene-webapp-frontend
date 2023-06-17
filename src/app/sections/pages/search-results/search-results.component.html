@@ -1,0 +1,10 @@
+<app-search-gene></app-search-gene>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{search_term}}</mat-card-title>
+        <mat-card-subtitle> Found {{n_results}} gene results</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <app-table [data]= "results"></app-table>
+    </mat-card-content>
+</mat-card>

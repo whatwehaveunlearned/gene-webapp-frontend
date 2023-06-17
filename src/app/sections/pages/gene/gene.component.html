@@ -1,50 +1,126 @@
-<app-search-gene></app-search-gene>
-<div class="gene-card-container">
-    <p class="gene-card-title" *ngIf="this.gene_info"> Gene Card </p>
-    <mat-card class="gene-card" *ngIf="!this.gene_info">
-        <p class="loading_message">Fetching data this might take up to a couple of minutes</p>
-        <mat-spinner
-            [color]="'accent'"
-            [strokeWidth]="2"
-            [diameter]="50">
-        </mat-spinner>
-    </mat-card>
-    <mat-card class="gene-card" *ngIf="this.gene_info">
-        <p>
-        <span class="gene-card-attribute-title">Gene: </span> <span class="gene-card-attribute-value">{{this.gene_info['Official_Symbol']}}</span>
-        </p>
-        <p>
-            <span class="gene-card-attribute-title">Discovered: </span> <span class="gene-card-attribute-value">{{this.gene_info['First_Published']}}</span>
+<div class='content'>
+    <app-search-gene></app-search-gene>
+    <mat-card class="section">
+        <mat-card-header class="card-header">
+            <mat-card-title> 
+                <span class="gene-card-attribute-title">{{this.gene_info['Official_Symbol']}}</span> 
+                <span class="gene-card-attribute-value"> {{this.gene_info['Official_Name']}}</span>
+                <mat-icon class="go-to">web</mat-icon>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <!-- <p class="gene-card-title" *ngIf="this.gene_info"> Gene Card </p> -->
+        <div class="gene-card" *ngIf="!this.gene_info">
+            <p class="loading_message">Fetching data this might take up to a couple of minutes</p>
+            <mat-spinner
+                [color]="'accent'"
+                [strokeWidth]="2"
+                [diameter]="50">
+            </mat-spinner>
+        </div>
+        <mat-card-content class="gene-card" *ngIf="this.gene_info">
+            <p>
+                <span class="gene-card-attribute-title"> Symbol:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Official_Symbol']}} </span>
             </p>
-        <p>
-            <span class="gene-card-attribute-title">Official Symbol:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Official_Symbol']}} </span>
-        </p>
-        <p>
-            <span class="gene-card-attribute-title"> Official Full Name:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Official_Name']}} </span>
+            <p>
+                <span class="gene-card-attribute-title"> Name:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Official_Name']}} </span>
+            </p>
+             <!-- <p>
+                <span class="gene-card-attribute-title"> Accession Number:</span> <span class="gene-card-attribute-value"> {{this.gene_info['Accession_Number']}} </span>
+            </p> -->
+            <p>
+                <span class="gene-card-attribute-title"> Synonyms: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Synonyms'].join(', ')}} </span>
 
-        </p>
-        <p>
-            <span class="gene-card-attribute-title"> Also Known as: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Synonyms']}} </span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Other symbols included in this group: </span>
+                <span>
+                    <ng-container *ngFor="let gene_in_group of this.gene_info['Symbols_In_Group']; let isLast = last">
+                        <a [href]="'#' + gene_in_group">{{ gene_in_group }}</a>
+                        <ng-container *ngIf="!isLast">, </ng-container>
+                      </ng-container>
+                </span>
+            </p>
+            <!-- <p>
+                <span class="gene-card-attribute-title"> First published on: </span> <span class="gene-card-attribute-value">{{this.gene_info['First_Published']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Last published on: </span> <span class="gene-card-attribute-value">{{this.gene_info['Last_Published']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Total publications: </span> <span class="gene-card-attribute-value">{{this.gene_info['Total_Publications']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Average publications per year: </span> <span class="gene-card-attribute-value">{{this.gene_info['Avg_Publications_Year']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Peak Publication Year: </span> <span class="gene-card-attribute-value">{{this.gene_info['Peak_Publication_Year']}}</span>
+            </p>
+            <p>    
+                <span class="gene-card-attribute-title"> Max number of publications in a year: </span>  <span class="gene-card-attribute-value">{{this.gene_info['N_Publications_Peak_Year']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Total citations: </span> <span class="gene-card-attribute-value">{{this.gene_info['Total_Citations']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Average citations per year: </span> <span class="gene-card-attribute-value">{{this.gene_info['Avg_Citations_Year']}}</span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Year with more citations: </span> <span class="gene-card-attribute-value">{{this.gene_info['Peak_Citation_Year']}}</span>
+            </p>
+            <p>    
+                <span class="gene-card-attribute-title"> Max number of citations in a year: </span>  <span class="gene-card-attribute-value">{{this.gene_info['N_Citations_Peak_Year']}}</span>
+            </p> -->
+            <p>
+                <span class="gene-card-attribute-title"> Gene type: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Type']}} </span>
 
-        </p>
-        <p>
-            <span class="gene-card-attribute-title"> Gene Type: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Type']}} </span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Organism: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Organism']}} </span>
 
-        </p>
-        <p>
-            <span class="gene-card-attribute-title"> Organism: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Organism']}} </span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Lineage: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Lineage']}} </span>
 
-        </p>
-        <p>
-            <span class="gene-card-attribute-title"> Lineage: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Lineage']}} </span>
+            </p>
+            <p>
+                <span class="gene-card-attribute-title"> Summary: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Summary']}} </span>
+            </p>
 
-        </p>
-        <p>
-            <span class="gene-card-attribute-title"> Summary: </span> <span class="gene-card-attribute-value"> {{this.gene_info['Summary']}} </span>
-        </p>
-        <!-- <app-table [data]= "gene_counts_all_time"></app-table> -->
+            <table class="gene_card_stats_table">
+                <tr>
+                  <th></th>
+                  <th>First</th>
+                  <th>Last</th>
+                  <th>Peak</th>
+                  <th>Max in a Year</th>
+                  <th>Avg per Year</th>
+                  <th>Total</th>
+                </tr>
+                <tr>
+                  <td>Publications</td>
+                  <td>{{ this.gene_info['First_Published'] }}</td>
+                  <td>{{ this.gene_info['Last_Published'] }}</td>
+                  <td>{{ this.gene_info['Peak_Publication_Year'] }}</td>
+                  <td>{{ this.gene_info['N_Publications_Peak_Year'] }}</td>
+                  <td>{{ this.gene_info['Avg_Publications_Year'] }}</td>
+                  <td>{{ this.gene_info['Total_Publications'] }}</td>
+                </tr>
+                <tr>
+                    <td>Citations</td>
+                    <td>{{this.gene_info['First_Citation']}}</td>
+                    <td>{{this.gene_info['Last_Citation']}}</td>
+                    <td>{{ this.gene_info['Peak_Citation_Year'] }}</td>
+                    <td>{{ this.gene_info['N_Citations_Peak_Year'] }}</td>
+                    <td>{{ this.gene_info['Avg_Citations_Year'] }}</td>
+                    <td>{{ this.gene_info['Total_Citations'] }}</td>
+                </tr>
+            </table>
+
+        </mat-card-content>
     </mat-card>
-</div>
 
-<app-summary [geneID]= "geneID"></app-summary>
-<app-list-component *ngIf="this.gene_info" [geneID]= "geneID" [geneSymbol]="geneSymbol"></app-list-component>
+    <app-summary [value]= "geneID" [page]="'gene'"></app-summary>
+    <app-list-component *ngIf="this.gene_info" [page]= "'gene'" [filter]= "geneID" [title]="geneSymbol"></app-list-component>
+    <app-subsection [page]= "'gene'" [subsectionType]="'author'" [filter]= "geneID"></app-subsection> 
+</div>

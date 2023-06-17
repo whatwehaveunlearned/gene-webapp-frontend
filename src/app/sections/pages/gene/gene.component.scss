@@ -1,18 +1,41 @@
-.gene-card-container{
-    margin: 5px;
-    .gene-card-title{
+@use "../../../../style_variables" as theme;
+
+.section{
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    margin: 0.5em;
+    margin-top:1.5em;
+    border-radius: 28px;
+    .card-header{
         font-weight: bold;
-        font-size: min(1.5vw, 30px);
-        margin-left: 11px;
+        // font-size: min(1.5vw, 30px);
+        // margin-left: 11px;
+        // background-color: theme.$color-primary;
     }
 
     .gene-card{
-        border: 2px solid black;
-        border-radius: 24px;
+        // border: 2px solid black;
+        // border-radius: 24px;
         padding: 10px;
 
         .gene-card-attribute-title{
             font-weight: bold;
+        }
+
+        .gene_card_stats_table{
+            border-collapse: collapse;
+            text-align: right;
+            margin: 0 auto;
+            tr{
+                border-bottom: 2px solid black;
+            }
+            td{
+                padding: 20px;
+                border-right: 1px solid black;
+            }
+            th{
+                padding: 20px;
+                border-right: 1px solid black;
+            }
         }
     }
 
@@ -25,3 +48,16 @@
         margin: auto;
     }
 }
+
+.content{    
+    display: flex;
+    flex-direction: column;
+}
+
+.go-to:hover{
+    color:theme.$color-accent
+  }
+  
+  .go-to{
+    color:theme.$color-primary
+  }

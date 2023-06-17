@@ -3,11 +3,6 @@ content{
     flex-direction: column;
 }
 
-mat-divider{
-    padding: 1vw;
-    margin: 1vw;
-}
-
 .number_title{
     font-size: min(1.5vw, 30px);
     font-weight: bold;
@@ -25,10 +20,21 @@ mat-divider{
 mat-card{
     width: fit-content;
     margin: auto;
+    margin-top: 1.5em;
     padding:1vw;
     background: #ff80ab;
     border: solid 1px;
     p{
         margin:0.2vw;
     }
+}
+
+.summary{
+    margin: 50px;
+    display: block;
+}
+
+.subsection{
+    margin: 50px;
+    display: block;
 }

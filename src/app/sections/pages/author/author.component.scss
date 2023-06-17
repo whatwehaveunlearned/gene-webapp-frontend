@@ -1,0 +1,8 @@
+@use "../../../../style_variables" as theme;
+.title{
+    font-weight: bold;
+    font-size: theme.$font-size-title;
+    margin-left: 11px;
+    text-align: center;
+    padding: 1rem;
+}
