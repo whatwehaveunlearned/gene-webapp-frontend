@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HighchartBarComponent } from './highchart-bar.component';
+import { HighchartBarComponent } from './highchart.component';
 
 describe('HighchartBarComponent', () => {
   let component: HighchartBarComponent;

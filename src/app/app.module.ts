@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './sections/pages/home/home.component';
 import { SearchGeneComponent, SearchFilter } from './sections/components/search-gene/search-gene.component';
 import { BarChartComponent } from './sections/components/bar-chart/bar-chart.component';
+import { HighchartBarComponent } from './sections/components/highchart/highchart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './sections/components/table/table.component';
 import { DataCardComponent } from './sections/components/data-card/data-card.component';
@@ -18,6 +19,7 @@ import { SubsectionComponent } from './sections/components/subsection/subsection
 import { ListComponentComponent } from './sections/components/list-component/list-component.component';
 import { AuthorComponent } from './sections/pages/author/author.component';
 import { SearchResultsComponent } from './sections/pages/search-results/search-results.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { SearchResultsComponent } from './sections/pages/search-results/search-r
     SearchGeneComponent,
     SearchFilter,
     BarChartComponent,
+    HighchartBarComponent,
     TableComponent,
     DataCardComponent,
     GeneComponent,
@@ -41,7 +44,8 @@ import { SearchResultsComponent } from './sections/pages/search-results/search-r
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
