@@ -11,14 +11,15 @@
             </mat-card-header>
             <mat-card-content class="graph_block">
                 <app-highchart 
-                    chartType="line" 
+                    chartType="line"
+                    dataType = "publications" 
                     [data]="data_summary_hist_all_gene2pubmed"
                     seriesName="Publications"    
-                >
-                </app-highchart>
+                ></app-highchart>
                 <!-- <app-bar-chart [data]="data_summary_hist_all_gene2pubmed"></app-bar-chart>-->
                 <app-highchart
                     chartType="line"
+                    dataType = "publications" 
                     [data]="data_summary_hist_cum_all_gene2pubmed"
                     seriesName="Publications"
                 ></app-highchart>   
@@ -39,12 +40,14 @@
             <mat-card-content class="graph_block">
                 <app-highchart
                     chartType="line"
+                    dataType = "publications" 
                     [data]="data_summary_hist_research_gene2pubmed"
                     seriesName="Publications"
                 ></app-highchart>
                 <!-- <app-bar-chart [data]="data_summary_hist_research_gene2pubmed"></app-bar-chart> -->
                 <app-highchart
                     chartType="line"
+                    dataType = "publications" 
                     [data]="data_summary_hist_cum_research_gene2pubmed"
                     seriesName="Publications"
                 ></app-highchart>
@@ -65,12 +68,14 @@
             <mat-card-content class="graph_block">
                 <app-highchart
                     chartType="line"
+                    dataType = "publications" 
                     [data]="data_summary_hist_reviews_gene2pubmed"
                     seriesName="Publications"
                 ></app-highchart>
                 <!-- <app-bar-chart [data]="data_summary_hist_reviews_gene2pubmed"></app-bar-chart> -->
                 <app-highchart
                     chartType="line"
+                    dataType = "publications" 
                     [data]="data_summary_hist_cum_reviews_gene2pubmed"
                     seriesName="Publications"
                 ></app-highchart>     

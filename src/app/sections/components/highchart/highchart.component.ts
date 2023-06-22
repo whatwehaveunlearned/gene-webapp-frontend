@@ -12,6 +12,7 @@ import type { chart } from 'highcharts';
 export class HighchartBarComponent implements OnChanges {
 
   @Input() chartType:string ; // Input property for the chart type
+  @Input() dataType: "publications" | "genes" | "authors"; // Input property for the data type
   @Input() data: any; // data Input
   @Input() title:string; // title input
   @Input() xAxisLable:string; // x axis lable input
@@ -20,11 +21,13 @@ export class HighchartBarComponent implements OnChanges {
 
   public Highcharts = Highcharts; 
   public chartOptions: Highcharts.Options;
+  private xValues:string[];
+  private yValues:string[];
   private yAxisFormatter: any; //Function to format yAxis values
-  private formatterType:string = 'K' //Value to hold formatter type
+  private formatterType:string = 'K'; //Value to hold formatter type
 
   constructor() {
-     exporting(Highcharts); // required for export functionality
+     exporting(Highcharts); //required for export functionality
      exportData(Highcharts);
      Highcharts.setOptions({
         // lang: {
@@ -35,13 +38,26 @@ export class HighchartBarComponent implements OnChanges {
     }
 
   ngOnChanges(changes:SimpleChanges){
+    this.dataMapping(this.data, this.dataType);
     this.yAxisFormatter = this.YaxisSetFormatter(this.data)
     this.updateChartData(this.data);
   }
 
-  updateChartData(data: { counts: number, ID: number }[]) {
-    const categories = data.map(item => item.ID.toString());
-    const counts = data.map(item => item.counts);
+  //Function used to map the proper data to the chart
+  dataMapping(data:any, dataType: "publications" | "genes" | "authors"){
+    if(dataType == "publications"){
+        this.xValues = data.map((item:any) => item.ID.toString());
+        this.yValues = data.map((item:any) => item.counts);
+    }else if(dataType == "genes"){
+        this.xValues = data.map((item:any) => item.Symbol.toString());
+        this.yValues = data.map((item:any) => item.counts);
+    }else if(dataType == "authors"){
+        console.log()
+    }
+  }
+
+  updateChartData(data: Object[]) {
+    
 
     //Need to store the component because you loose access to this
     //context when using the tooltip formatter. Similar to d3. 
@@ -57,7 +73,7 @@ export class HighchartBarComponent implements OnChanges {
         },
         xAxis: {
             crosshair: true,
-            categories: categories,
+            categories: this.xValues,
             title: {
                 text: this.xAxisLable,
             }
@@ -102,7 +118,7 @@ export class HighchartBarComponent implements OnChanges {
             type: this.chartType as any,
             showInLegend: false,
             name: this.seriesName, //Name shown on hover and legend
-            data: counts,
+            data: this.yValues,
             lineWidth: 2
         }]
       };

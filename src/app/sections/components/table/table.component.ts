@@ -125,4 +125,12 @@ export class TableComponent implements OnChanges{
       // this.router.navigate([route], { queryParams: { id: row.GeneID } });
     }
   }
+
+  formatAuthorNames(names: string): string {
+    const nameArray = names.split(', ');
+    const firstElement = nameArray[0];
+    const lastElement = nameArray[nameArray.length - 1];
+    
+    return `${firstElement}, ${lastElement}, et al.`;
+  }
 }
