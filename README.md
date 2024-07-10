@@ -6,27 +6,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ```
-Angular CLI: 13.0.4
-Node: 16.13.2
-Package Manager: npm 8.1.2
-OS: darwin arm64
+Angular CLI: 16.0.0
+Node: 18.10
 
-Package                         Version
----------------------------------------------------------
-@angular-devkit/architect       0.1300.4
-@angular-devkit/build-angular   13.0.4
-@angular-devkit/core            13.0.4
-@angular-devkit/schematics      13.0.4
-@angular/cdk                    13.2.2
-@angular/cli                    13.0.4
-@angular/material               13.2.2
-@schematics/angular             13.0.4
-rxjs                            7.4.0
-typescript                      4.4.4
 ```
 ## Setup
 
-Run npm install (inside project folder.)
+Set up proper node version. Tip: Use NVM to manage multiple versions of node in the same machine.
+
+1. Install NVM using homebrew.
+You can follow this tutorial to set up in MAC. [tutorial](https://sukiphan.medium.com/how-to-install-nvm-node-version-manager-on-macos-d9fe432cc7db) 
+
+2. Run these commands after installation:
+
+```
+nvm install v18.10.0
+nvm use 18.10
+```
+
+3. Run npm install (inside project folder.)
+
 
 ## Development server 
 
