@@ -1,6 +1,6 @@
 # GeneWebappFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Basics and Requirements
 
@@ -24,7 +24,9 @@ nvm install v18.10.0
 nvm use 18.10
 ```
 
-3. Run npm install (inside project folder.)
+3. clone this repository and navigate inside
+
+4. Run npm install (inside project folder.)
 
 
 ## Development server 
